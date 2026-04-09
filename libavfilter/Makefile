@@ -618,6 +618,7 @@ OBJS-$(CONFIG_GFXCAPTURE_FILTER)             += vsrc_gfxcapture.o vsrc_gfxcaptur
 OBJS-$(CONFIG_GRADIENTS_FILTER)              += vsrc_gradients.o
 OBJS-$(CONFIG_HALDCLUTSRC_FILTER)            += vsrc_testsrc.o
 OBJS-$(CONFIG_LIFE_FILTER)                   += vsrc_life.o
+OBJS-$(CONFIG_LOTTIE_FILTER)                 += vsrc_lottie.o
 OBJS-$(CONFIG_MANDELBROT_FILTER)             += vsrc_mandelbrot.o
 OBJS-$(CONFIG_MPTESTSRC_FILTER)              += vsrc_mptestsrc.o
 OBJS-$(CONFIG_NULLSRC_FILTER)                += vsrc_testsrc.o

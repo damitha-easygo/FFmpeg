@@ -271,6 +271,7 @@ External library support:
   --enable-librav1e        enable AV1 encoding via rav1e [no]
   --enable-librist         enable RIST via librist [no]
   --enable-librsvg         enable SVG rasterization via librsvg [no]
+  --enable-libthorvg       enable Lottie animation via ThorVG (lottie filter) [no]
   --enable-librubberband   enable rubberband needed for rubberband filter [no]
   --enable-librtmp         enable RTMP[E] support via librtmp [no]
   --enable-libshaderc      enable runtime GLSL->SPIRV compilation via libshaderc [no]
@@ -2125,6 +2126,7 @@ EXTERNAL_LIBRARY_LIST="
     librist
     librsvg
     librtmp
+    libthorvg
     libshaderc
     libshine
     libsmbclient
@@ -4177,6 +4179,7 @@ dnn_classify_filter_select="dnn"
 dnn_detect_filter_select="dnn"
 dnn_processing_filter_select="dnn"
 drawtext_filter_deps="libfreetype libharfbuzz"
+lottie_filter_deps="libthorvg"
 drawtext_filter_suggest="libfontconfig libfribidi"
 drawvg_filter_deps="cairo"
 elbg_filter_deps="avcodec"
@@ -7429,6 +7432,7 @@ enabled librabbitmq       && require_pkg_config librabbitmq "librabbitmq >= 0.7.
 enabled librav1e          && require_pkg_config librav1e "rav1e >= 0.5.0" rav1e.h rav1e_context_new
 enabled librist           && require_pkg_config librist "librist >= 0.2.7" librist/librist.h rist_receiver_create
 enabled librsvg           && require_pkg_config librsvg librsvg-2.0 librsvg-2.0/librsvg/rsvg.h rsvg_handle_new_from_data
+enabled libthorvg         && require_pkg_config libthorvg thorvg-1 thorvg_capi.h tvg_engine_init
 enabled librtmp           && require_pkg_config librtmp librtmp librtmp/rtmp.h RTMP_Socket
 enabled librubberband     && require_pkg_config librubberband "rubberband >= 1.8.1" rubberband/rubberband-c.h rubberband_new -lstdc++ && append librubberband_extralibs "-lstdc++"
 enabled libshaderc        && require_pkg_config spirv_library "shaderc >= 2019.1" shaderc/shaderc.h shaderc_compiler_initialize

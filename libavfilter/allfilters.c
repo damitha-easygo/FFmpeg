@@ -581,6 +581,7 @@ extern const FFFilter ff_vsrc_gfxcapture;
 extern const FFFilter ff_vsrc_gradients;
 extern const FFFilter ff_vsrc_haldclutsrc;
 extern const FFFilter ff_vsrc_life;
+extern const FFFilter ff_vsrc_lottie;
 extern const FFFilter ff_vsrc_mandelbrot;
 extern const FFFilter ff_vsrc_mptestsrc;
 extern const FFFilter ff_vsrc_nullsrc;
