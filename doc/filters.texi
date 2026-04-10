@@ -30557,6 +30557,53 @@ ffplay -f lavfi life=s=300x200:mold=10:r=60:ratio=0.1:death_color=#C83232:life_c
 @end example
 @end itemize
 
+@section lottie
+
+Render a Lottie JSON animation using the ThorVG library.
+
+The filter loads a Lottie @file{.json} animation file and outputs RGBA video
+frames.  By default the animation loops indefinitely; set @option{loop=0} to
+play it once and signal EOF when the last frame has been emitted.
+
+It requires FFmpeg to be built with @code{--enable-libthorvg}.
+
+@subsection Options
+
+@table @option
+@item filename, f
+Path to the Lottie JSON animation file.  This option is mandatory.
+
+@item size, s
+Set the output frame size.  If not specified, the size is taken from the
+animation's own viewport.  For the syntax of this option, check the
+@ref{video size syntax,,"Video size" section in the ffmpeg-utils manual,ffmpeg-utils}.
+
+@item rate, r
+Set the output frame rate.  Default is @code{25}.
+
+@item loop
+If set to @code{1} (the default), the animation loops forever.  If set to
+@code{0}, the filter plays the animation once and then signals end-of-stream.
+@end table
+
+@subsection Examples
+
+@itemize
+@item
+Play a Lottie animation once at its native size:
+@example
+ffplay -f lavfi lottie=f=animation.json:loop=0
+@end example
+
+@item
+Overlay a looping Lottie animation in the bottom-right corner of a video:
+@example
+ffmpeg -i input.mp4 -filter_complex \
+  "lottie=f=animation.json:s=370x400[fg]; [0:v][fg]overlay=W-w-20:H-h-20" \
+  output.mp4
+@end example
+@end itemize
+
 @section perlin
 Generate Perlin noise.
 

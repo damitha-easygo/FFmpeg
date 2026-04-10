@@ -1,7 +1,4 @@
 /*
- * Lottie animation video source using ThorVG
- * Copyright (c) 2024 FFmpeg Contributors
- *
  * This file is part of FFmpeg.
  *
  * FFmpeg is free software; you can redistribute it and/or
